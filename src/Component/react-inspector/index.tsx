@@ -7,6 +7,7 @@ import {
   ObjectName,
   ObjectValue,
   ObjectPreview,
+  ObjectInspector,
 } from 'react-inspector'
 
 import { Context } from '../../definitions/Component'
@@ -27,6 +28,14 @@ function intersperse(arr, sep) {
   }
 
   return arr.slice(1).reduce((xs, x) => xs.concat([sep, x]), [arr[0]])
+}
+
+const convertToObject = (domObject) => {
+  let obj = {}
+  for (let p in domObject) {
+    obj[p] = domObject[p]
+  }
+  return obj
 }
 
 const getArrayLength = (array: Array<any>) => {
@@ -104,10 +113,10 @@ class CustomInspector extends React.PureComponent<Props, any> {
 
     const dom = data instanceof HTMLElement
     const table = method === 'table'
-
-    return (
-      <Root data-type={table ? 'table' : dom ? 'html' : 'object'}>
-        {table ? (
+    const dir = method === 'dir'
+    if (table) {
+      return (
+        <Root data-type="table">
           <table
             style={{ border: '1px solid black', borderCollapse: 'collapse' }}
           >
@@ -133,17 +142,36 @@ class CustomInspector extends React.PureComponent<Props, any> {
               })}
             </tbody>
           </table>
-        ) : dom ? (
+        </Root>
+      )
+    } else if (dir) {
+      return (
+        <Root data-type="object">
+          <ObjectInspector
+            name={data?.localName}
+            theme={styles}
+            data={convertToObject(data)}
+            nodeRenderer={this.nodeRenderer.bind(this)}
+          />
+        </Root>
+      )
+    } else if (dom) {
+      return (
+        <Root data-type="html">
           <HTML>
             <DOMInspector {...this.props} theme={styles} />
           </HTML>
-        ) : (
-          <Inspector
-            {...this.props}
-            theme={styles}
-            nodeRenderer={this.nodeRenderer.bind(this)}
-          />
-        )}
+        </Root>
+      )
+    }
+
+    return (
+      <Root data-type="object">
+        <Inspector
+          {...this.props}
+          theme={styles}
+          nodeRenderer={this.nodeRenderer.bind(this)}
+        />
       </Root>
     )
   }
