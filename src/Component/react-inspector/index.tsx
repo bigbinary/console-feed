@@ -119,7 +119,7 @@ class CustomInspector extends React.PureComponent<Props, any> {
             </thead>
             <tbody>
               {Object.keys(data).map((key) => {
-                if (data[key]?.startsWith?.('__console_feed_')) return null
+                if (data[key]?.startsWith?.(REMAINING_KEY)) return null
                 return (
                   <tr key={key}>
                     <td style={{ border: '1px solid black', padding: '8px' }}>
