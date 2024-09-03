@@ -1,5 +1,5 @@
 <body a="b">
-  demo iframe
+  <p id="test">demo iframe</p>
   <script>
     setTimeout(() => {
       console.log({
@@ -54,6 +54,7 @@
       })
 
       console.log('HTML element', document.body)
+      console.dir(document.getElementById('test'))
 
       console.log('Nested', {
         promise: new Promise(() => {}),
