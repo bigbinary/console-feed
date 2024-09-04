@@ -5,8 +5,8 @@
 > Here are the changes we made from the original package:
 >
 > - Changed display of Promise from `Promise <Pending>` to `Promise {}`
-> - Added support for `console.dir` command.
-> - Improved display of console.table
+> - Added support for `console.dir` logs.
+> - Improved display of console.table to match the response from browser dev tools.
 
 [Sponsor this project](https://github.com/sponsors/samdenty)
 
