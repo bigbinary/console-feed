@@ -1,5 +1,5 @@
 {
-  "name": "console-feed",
+  "name": "@bigbinary/console-feed",
   "version": "3.6.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
