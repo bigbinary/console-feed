@@ -6,7 +6,7 @@
   "description": "A React component that displays console logs from the current page, an iframe or transported across a server",
   "scripts": {
     "prepack": "yarn build",
-    "build": "tsc -p ./tsconfig.build.json --declaration && for file in src/**/*.d.ts; do cp $file ${file/src/lib}; done",
+    "build": "tsc -p ./tsconfig.build.json --declaration && for file in src/**/*.d.ts; do cp $file $(echo $file | sed 's/src/lib/'); done",
     "start": "vite demo",
     "release": "yarn test && yarn build && yarn publish",
     "precommit": "pretty-quick --staged",
