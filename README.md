@@ -1,5 +1,13 @@
 # console-feed [![Sponsors](https://img.shields.io/github/sponsors/samdenty?label=Sponsors)](https://github.com/sponsors/samdenty)
 
+> [!NOTE]
+> This is a fork of the original [console-feed](https://github.com/samdenty/console-feed) packages.
+> Here are the changes we made from the original package:
+>
+> - Changed display of Promise from `Promise <Pending>` to `Promise {}`
+> - Added support for `console.dir` command.
+> - Improved display of console.table
+
 [Sponsor this project](https://github.com/sponsors/samdenty)
 
 [![npm version](https://img.shields.io/npm/v/console-feed.svg?style=flat-square)](https://www.npmjs.com/package/console-feed)
@@ -41,9 +49,9 @@ https://github.com/tachibana-shin/vue-console-feed is a fork for Vue.JS
 ## Install
 
 ```sh
-yarn add console-feed
+yarn add @bigbinary/console-feed
 # or
-npm install console-feed
+npm install @bigbinary/console-feed
 ```
 
 ## Basic usage
