@@ -1,13 +1,15 @@
 import { Message } from '../definitions/Console'
 import Arithmetic from './arithmetic'
 import BigInt from './BigInt'
+import Date from './Date'
 import Function from './Function'
 import HTML from './HTML'
 import Map from './Map'
 
 import Replicator from './replicator'
+import Set from './Set'
 
-const transforms = [HTML, Function, Arithmetic, Map, BigInt]
+const transforms = [HTML, Function, Arithmetic, Map, BigInt, Date, Set]
 
 const replicator = new Replicator()
 replicator.addTransforms(transforms)
