@@ -85,6 +85,15 @@
 
       const longMap = new Map(Object.entries(longObj))
       console.log(longMap)
+      console.log('Date', new Date())
+      console.log(
+        'Map',
+        new Map([
+          [1, 2],
+          [3, 4],
+        ])
+      )
+      console.log('Set', new Set([1, 2, 3]))
       console.timeEnd('Render time')
       console.dir(new Error('hmm'))
 
