@@ -18,6 +18,7 @@
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.12",
     "emotion-theming": "^10.0.10",
+    "flatted": "^3.3.1",
     "linkifyjs": "^2.1.6",
     "react-inline-center": "1.0.1",
     "react-inspector": "^5.1.0"
