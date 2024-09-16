@@ -1,3 +1,5 @@
+import { stringify } from 'flatted'
+
 // Const
 const TRANSFORMED_TYPE_KEY = '@t'
 const CIRCULAR_REF_KEY = '@r'
@@ -161,6 +163,12 @@ class EncodingTransformer {
       const val = getVal()
       const type = typeof val
       const isObject = type === 'object' && val !== null
+      const isWindowOrDocument =
+        val instanceof Window || val instanceof Document
+
+      if (isWindowOrDocument) {
+        return stringify(val)
+      }
 
       if (isObject) {
         const refMark = this._ensureCircularReference(val)
