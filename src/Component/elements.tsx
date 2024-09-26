@@ -19,6 +19,7 @@ const Themed = (
 export const Root = styled('div')({
   wordBreak: 'break-word',
   width: '100%',
+  overflowY: 'auto',
 })
 
 /**
