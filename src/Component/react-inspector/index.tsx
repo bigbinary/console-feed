@@ -194,9 +194,13 @@ class CustomInspector extends React.PureComponent<Props, any> {
       return <ErrorPanel error={data.stack} />
     }
 
-    if (constructor === 'Promise')
-      return <span style={{ fontStyle: 'italic' }}>Promise {`{}`}</span>
-
+    if (constructor === 'Promise') {
+      return (
+        <span style={{ fontStyle: 'italic' }}>
+          Promise {`{<${data.status}>}`}
+        </span>
+      )
+    }
     if (data instanceof HTMLElement)
       return (
         <HTML>
