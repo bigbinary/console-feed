@@ -5,11 +5,21 @@ import Date from './Date'
 import Function from './Function'
 import HTML from './HTML'
 import Map from './Map'
+import PromiseTransformer from './Promise'
 
 import Replicator from './replicator'
 import Set from './Set'
 
-const transforms = [HTML, Function, Arithmetic, Map, BigInt, Date, Set]
+const transforms = [
+  HTML,
+  Function,
+  Arithmetic,
+  Map,
+  BigInt,
+  Date,
+  Set,
+  PromiseTransformer,
+]
 
 const replicator = new Replicator()
 replicator.addTransforms(transforms)

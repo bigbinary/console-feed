@@ -53,6 +53,12 @@
         },
       })
 
+      console.log('A fulfilled promise')
+      const promise = new Promise((resolve) => setTimeout(resolve, 1000))
+      setTimeout(() => {
+        console.log('FULFILLED', promise) // 'fulfilled'
+      }, 3000)
+
       console.log('HTML element', document.body)
       console.dir(document.getElementById('test'))
 
