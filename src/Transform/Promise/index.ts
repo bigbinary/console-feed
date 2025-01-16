@@ -1,3 +1,5 @@
+import SerializedPromise from './SerializedPromise'
+
 interface Storage {
   name: string
   body: object
@@ -28,15 +30,10 @@ export default {
     const pending = {
       state: 'pending',
     }
+    const serializedPromise = SerializedPromise.from(promise)
+    const result = serializedPromise.serialize()
 
-    const result = {}
-
-    promise.then(
-      (value) => {
-        result.status = 'fulfilled'
-      },
-      (error) => (result.status = 'rejected')
-    )
+    console.log(result)
     return {
       name: 'Promise',
       status: result.status || 'pending',
